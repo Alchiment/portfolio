@@ -1,0 +1,54 @@
+@import "../../../core/scss/variables.scss";
+
+.pr-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+
+  &__box-logo {
+    //background: #00FFFF;
+    color: #212121;
+  }
+
+  &__box-menu {
+    display: block;
+    li {
+      text-decoration: none;
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+      }
+    }
+
+    &--horizontal {
+      display: flex;
+      align-content: center;
+    }
+
+    &__item {
+      padding: 0 5px;
+      a {
+        color: $clWhite;
+
+        &:hover {
+          background: #00FFFF;
+          color: $clBlack;
+          border-radius: 5px;
+          transition: 0.2s all ease-in-out;
+        }
+      }
+
+      &--active {
+        & a {
+          background: #00FFFF;
+          color: $clBlack;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

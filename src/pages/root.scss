@@ -1,0 +1,18 @@
+@import "../core/scss/variables";
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('../core/fonts/Montserrat-Regular.ttf');
+}
+
+body {
+  background: $clBlack;
+  color: $clWhite;
+  font-family: 'Montserrat-Regular', serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}

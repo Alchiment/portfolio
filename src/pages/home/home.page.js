@@ -6,28 +6,30 @@ import NavbarComponent from "../../components/navbars/navbar/navbar.component";
 import '../../core/scss/root.scss';
 import SectionLeftRightComponent from "../../components/sections/section-left-right.component";
 import ButtonStandard from "../../components/buttons/button-standard";
+import HorizontalMenuComponent from "../../components/navbars/navbar/horizontal-menu.component";
 
 
+const menu = [
+    {
+        id: 1,
+        content: 'Home',
+        active: true
+    },
+    {
+        id: 2,
+        content: 'Proyectos',
+        path: '/'
+    },
+    {
+        id: 3,
+        content: 'Tecnologías'
+    },
+    {
+        id: 4,
+        content: 'Contacto'
+    },
+];
 const renderHeaderSection = () => {
-    const menu = [
-        {
-            id: 1,
-            content: 'Home',
-            active: true
-        },
-        {
-            id: 2,
-            content: 'Proyectos'
-        },
-        {
-            id: 3,
-            content: 'Tecnologías'
-        },
-        {
-            id: 4,
-            content: 'Contacto'
-        },
-    ];
     const navbarListComponent = new NavbarListComponent(document.querySelector('.pr-cls-navbar'));
     navbarListComponent.setMenuItems(menu);
     // Setting up DOM elements after render .hbs
@@ -40,7 +42,9 @@ const renderHeaderSection = () => {
 const renderWelcomeSection = () => {
     new SectionLeftRightComponent(document.querySelector('.pr-welcome'), {
         // sectionLeft: tplBigTitle({title: 'Hola, <strong>Soy Richard</strong> Freelance web & UI Developer'}),
-        sectionLeft: tplHomeWelcomeSection(),
+        sectionLeft: tplHomeWelcomeSection({
+            menuItems: JSON.stringify(menu)
+        }),
         sectionRight: 'right'
     });
 }
@@ -53,4 +57,5 @@ document.addEventListener("DOMContentLoaded", function () {
     renderWelcomeSection();
 });
 
-const btn = window.customElements.define('pr-button-standard', ButtonStandard);
+window.customElements.define('pr-button-standard', ButtonStandard);
+window.customElements.define('pr-horizontal-menu', HorizontalMenuComponent);

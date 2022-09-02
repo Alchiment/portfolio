@@ -1,7 +1,6 @@
 import tplNavbarList from './navbar-list.component.hbs';
 import tplButtonMenuLink from '../../../templates/buttons/button-menu-link.hbs';
 import BaseClass from "../../../core/base-class";
-import './navbar-list.component.scss';
 
 class NavbarListComponent extends BaseClass {
     listItems = null;

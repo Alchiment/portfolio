@@ -1,0 +1,31 @@
+.pr-button {
+  border-radius: 5px;
+  color: $clBlack;
+  background-color: $clWhite;
+  border: 1px solid $clWhite;
+  padding: 10px 50px;
+  margin: 5px;
+  cursor: pointer;
+  &:hover {
+    color: $clWhite;
+    border: 1px solid $clWhite;
+    background-color: $clBlack;
+    transition: 0.2s all ease-in-out;
+  }
+
+  &--standard {
+    color: $clBlack;
+    background-color: $clCian;
+    border: 1px solid $clCian;
+    &:hover {
+      color: $clCian;
+      border: 1px solid $clCian;
+      background-color: $clBlack;
+      transition: 0.2s all ease-in-out;
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

@@ -1,13 +1,16 @@
-@import "../../../core/scss/variables.scss";
+@import "../variables";
 
 .pr-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
+  position: relative;
+  z-index: 101;
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
   &__box-logo {
-    //background: #00FFFF;
     color: #212121;
   }
 

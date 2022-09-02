@@ -1,0 +1,43 @@
+@import "../variables";
+
+.pr-bg-section {
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    background: $clBlack;
+    z-index: -1;
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: $clGrey7;
+    z-index: -1;
+  }
+}
+
+.pr-section {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.pr-section__box {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}

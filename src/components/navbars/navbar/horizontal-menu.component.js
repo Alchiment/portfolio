@@ -1,4 +1,5 @@
 import BaseComponent from "../../../core/base-component";
+import {handleErrors} from "../../../core/utils";
 
 class HorizontalMenuComponent extends BaseComponent {
     menuItems = [];
@@ -32,7 +33,7 @@ class HorizontalMenuComponent extends BaseComponent {
                 ${liElements}
             </ul>`;
         } catch(e) {
-            console.error(e);
+            handleErrors(e);
         }
     }
 

@@ -1,4 +1,5 @@
 import BaseComponent from "../../core/base-component";
+import {handleErrors} from "../../core/utils";
 
 class TitleBigComponent extends BaseComponent {
     content = [];
@@ -27,7 +28,7 @@ class TitleBigComponent extends BaseComponent {
                 ${this.content}
             </h1>`;
         } catch(e) {
-            console.error(e);
+            handleErrors(e);
         }
     }
 

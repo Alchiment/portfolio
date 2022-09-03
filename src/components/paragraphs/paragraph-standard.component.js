@@ -1,4 +1,5 @@
 import BaseComponent from "../../core/base-component";
+import {handleErrors} from "../../core/utils";
 
 class ParagraphStandardComponent extends BaseComponent {
   content = '';
@@ -28,7 +29,7 @@ class ParagraphStandardComponent extends BaseComponent {
         </p>
       `;
     } catch(e) {
-      console.error(e);
+      handleErrors(e);
     }
   }
 

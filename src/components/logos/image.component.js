@@ -1,4 +1,5 @@
 import BaseComponent from "../../core/base-component";
+import {handleErrors} from "../../core/utils";
 
 class ImageComponent extends BaseComponent {
     src = '';
@@ -27,7 +28,7 @@ class ImageComponent extends BaseComponent {
             this.alt = this.attributes[this.attrs.alt]?.value;
             return `<img class="pr-image" src="${this.src}" alt="${(this.alt) ? this.alt : ''}"/>`;
         } catch(e) {
-            console.error(e);
+            handleErrors(e);
         }
     }
 

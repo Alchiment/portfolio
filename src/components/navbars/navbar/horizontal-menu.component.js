@@ -18,7 +18,7 @@ class HorizontalMenuComponent extends BaseComponent {
 
     templateHTML() {
         try {
-            if (!this.attributes.menuitems) {
+            if (!this.attributes[this.attrs.menuItems]?.value) {
                 throw `[${this.constructor.name}] You must sent items menu through ${this.attrs.menuItems} `;
             }
             this.menuItems = JSON.parse(this.attributes[this.attrs.menuItems].value) || [];
@@ -61,17 +61,17 @@ class HorizontalMenuComponent extends BaseComponent {
                 padding: 0 5px;
             }
             .pr-navbar__box-menu__item a {
-                color: #fff;
+                color: var(--white);
             }
-            .pr-navbar__box-menu__item a :hover {
-                background: #00FFFF;
-                color: #1D1C24;
+            .pr-navbar__box-menu__item a:hover {
+                background: var(--cian);
+                color: var(--black);
                 border-radius: 5px;
                 transition: 0.2s all ease-in-out;
             }
             .pr-navbar__box-menu__item--active a {
-              background: #00FFFF;
-              color: #1D1C24;
+              background: var(--cian);
+              color: var(--black);
               border-radius: 5px;
             }
           </style>

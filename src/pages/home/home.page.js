@@ -1,12 +1,14 @@
 import template from './home.page.hbs';
 import '../../core/scss/root.scss';
 // Custom components
-import ButtonStandard from "../../components/buttons/button-standard";
+import ButtonStandardComponent from "../../components/buttons/button-standard.component";
 import HorizontalMenuComponent from "../../components/navbars/navbar/horizontal-menu.component";
 import ImageComponent from "../../components/logos/image.component";
-import TitleBigComponent from "../../components/titles/title-big";
+import TitleBigComponent from "../../components/titles/title-big.component";
 import ParagraphStandardComponent from "../../components/paragraphs/paragraph-standard.component";
-import TitleStandardComponent from "../../components/titles/title-standard";
+import TitleStandardComponent from "../../components/titles/title-standard.component";
+import BoxPictureInfoComponent from "../../components/boxes/box-picture-info.component";
+import FeatureItemComponent from "../../components/feature-item/feature-item.component";
 
 
 const menu = [
@@ -36,9 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-window.customElements.define('pr-button-standard', ButtonStandard);
+window.customElements.define('pr-button-standard', ButtonStandardComponent);
 window.customElements.define('pr-horizontal-menu', HorizontalMenuComponent);
 window.customElements.define('pr-image', ImageComponent);
 window.customElements.define('pr-title-big', TitleBigComponent);
 window.customElements.define('pr-title-standard', TitleStandardComponent);
 window.customElements.define('pr-paragraph-standard', ParagraphStandardComponent);
+window.customElements.define('pr-box-picture-info', BoxPictureInfoComponent);
+window.customElements.define('pr-feature-item', FeatureItemComponent);

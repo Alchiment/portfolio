@@ -4,7 +4,7 @@
   width: 100%;
   height: 100%;
   z-index: 100;
-  position: relative;
+  position: static;
   &::before {
     content: '';
     display: block;
@@ -23,7 +23,7 @@
     right: 0;
     top: 0;
     width: 30%;
-    height: 100%;
+    height: 130%;
     background: var(--grey7);
     z-index: -1;
   }
@@ -32,23 +32,22 @@
 .pr-bg-banner-section {
   padding-top: 100px;
   width: 100%;
-  height: 100%;
-  z-index: 100;
-  position: relative;
+  height: auto;
+  //position: static;
   background-repeat: no-repeat;
-  background-position: 10px 30px;
+  background-position: 110px 30px;
 }
 
 .pr-section {
   display: flex;
   padding-top: 100px;
   width: 100%;
-  height: 100%;
-  position: relative;
+  height: auto;
+  //position: static;
 }
 
 .pr-section__box {
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 10px;
 }

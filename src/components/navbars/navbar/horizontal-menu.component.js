@@ -20,7 +20,7 @@ class HorizontalMenuComponent extends BaseComponent {
     templateHTML() {
         try {
             if (!this.attributes[this.attrs.menuItems]?.value) {
-                throw `[${this.constructor.name}] You must sent items menu through ${this.attrs.menuItems} `;
+                throw `[${this.constructor.name}] You must send items menu through ${this.attrs.menuItems} `;
             }
             this.menuItems = JSON.parse(this.attributes[this.attrs.menuItems].value) || [];
             let liElements = '';

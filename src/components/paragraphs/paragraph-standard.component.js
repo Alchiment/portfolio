@@ -20,7 +20,7 @@ class ParagraphStandardComponent extends BaseComponent {
   templateHTML() {
     try {
       if (!this.attributes[this.attrs.content]) {
-        throw `[${this.constructor.name}] You must sent path image through ${this.attrs.content} `;
+        throw `[${this.constructor.name}] You must send path image through ${this.attrs.content} `;
       }
       this.content = this.attributes[this.attrs.content]?.value;
       return `

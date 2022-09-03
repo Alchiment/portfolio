@@ -22,7 +22,7 @@ class ImageComponent extends BaseComponent {
     templateHTML() {
         try {
             if (!this.attributes[this.attrs.src]) {
-                throw `[${this.constructor.name}] You must sent path image through ${this.attrs.src} `;
+                throw `[${this.constructor.name}] You must send path image through ${this.attrs.src} `;
             }
             this.src = this.attributes[this.attrs.src]?.value;
             this.alt = this.attributes[this.attrs.alt]?.value;

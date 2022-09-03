@@ -6,6 +6,7 @@ import HorizontalMenuComponent from "../../components/navbars/navbar/horizontal-
 import ImageComponent from "../../components/logos/image.component";
 import TitleBigComponent from "../../components/titles/title-big";
 import ParagraphStandardComponent from "../../components/paragraphs/paragraph-standard.component";
+import TitleStandardComponent from "../../components/titles/title-standard";
 
 
 const menu = [
@@ -39,4 +40,5 @@ window.customElements.define('pr-button-standard', ButtonStandard);
 window.customElements.define('pr-horizontal-menu', HorizontalMenuComponent);
 window.customElements.define('pr-image', ImageComponent);
 window.customElements.define('pr-title-big', TitleBigComponent);
+window.customElements.define('pr-title-standard', TitleStandardComponent);
 window.customElements.define('pr-paragraph-standard', ParagraphStandardComponent);

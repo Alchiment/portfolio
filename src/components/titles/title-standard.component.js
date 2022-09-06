@@ -4,7 +4,8 @@ import {handleErrors} from "../../core/utils";
 class TitleStandardComponent extends BaseComponent {
     content = [];
     attrs = {
-        content: 'content'
+        content: 'content',
+        color: 'color'
     };
 
     constructor() {
@@ -23,8 +24,9 @@ class TitleStandardComponent extends BaseComponent {
                 throw `[${this.constructor.name}] You must send title through ${this.attrs.content}`;
             }
             this.content = this.attributes[this.attrs.content].value;
+            const color = this.attributes[this.attrs.color]?.value || 'white';
 
-            return `<h1 class="pr-title-standard--cian">
+            return `<h1 class="pr-title-standard standard--${color}">
                 ${this.content}
             </h1>`;
         } catch(e) {
@@ -35,13 +37,17 @@ class TitleStandardComponent extends BaseComponent {
     templateStyle() {
         return `
           <style>
-            h1.pr-title-standard--cian {
+            .pr-title-standard {
                 font-size: 40px;
                 font-weight: 500;
                 margin-top: 15px;
                 margin-bottom: 15px;
-                color: var(--cian);
+                color: var(--white);
                 font-family: 'Montserrat-Bold', serif;
+            }
+            
+            .standard--cian {
+                color: var(--cian);   
             }
           </style>
         `;

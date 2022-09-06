@@ -12,12 +12,16 @@
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/root";
+
 @import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/images";
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/api";
 
 @import "components/navbars.component";
 @import "components/sections.component";
+@import "icons.css";
 
 @font-face {
   font-family: 'Montserrat-Regular';
@@ -55,7 +59,7 @@ body {
 
 .pr-container {
   width: 100%;
-  height: 100%;
+  //height: 100%;
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -84,7 +88,15 @@ body {
   justify-content: space-between;
 }
 
+.pr-pt-top-100px {
+  padding-top: 100px;
+}
+
 .pr-px-3 {
   padding-left: 3em;
   padding-right: 3em;
+}
+
+.row {
+  --bs-gutter-x: 0
 }

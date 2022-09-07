@@ -73,7 +73,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     showOrHideMenu();
     openCloseListenersMenu();
+    actionsMobileMenu();
 });
+
+function actionsMobileMenu() {
+    const shadowDom = document.querySelector('pr-vertical-menu').shadowRoot;
+    setTimeout(() => {
+        console.log('click', shadowDom.querySelector('.pr-navbar__box-menu__item'));
+        shadowDom.querySelector('.pr-navbar__box-menu__item').addEventListener('click', () => {
+            console.log('click');
+        });
+    }, 2000)
+}
 
 function openCloseListenersMenu() {
     document.querySelector('.menu--open').addEventListener('click', () => {
@@ -87,12 +98,15 @@ function openCloseListenersMenu() {
 
 function showOrHideMenu() {
     const menuElem = document.querySelector('pr-horizontal-menu');
+    const menuMobileElem = document.querySelector('pr-vertical-menu');
     const buttonMenu = document.querySelector('.menu--open');
     if (window.outerWidth < 768) {
         menuElem.classList.add('d-none');
+        menuMobileElem.classList.remove('d-none');
         buttonMenu.classList.remove('d-none');
     } else {
         menuElem.classList.remove('d-none');
+        menuMobileElem.classList.add('d-none');
         buttonMenu.classList.add('d-none');
     }
 }
@@ -127,16 +141,22 @@ function toggleClassActiveItem() {
     const lengthURL = url.length;
     // Getting ID section name
     const section = url.substring(hashPosition, lengthURL);
-    const shadowDomNav = document.querySelector('pr-horizontal-menu').shadowRoot;
-    // Getting all list items
-    const elementsList = shadowDomNav?.querySelectorAll('li');
-    elementsList?.forEach((element) => {
-        // Remove all active items
-        element.classList.remove('pr-navbar__box-menu__item--active');
-    });
-    // Find items by href
-    const elementBySection = shadowDomNav.querySelector(`[href="${section}"]`);
-    // Adding the class active
-    elementBySection?.parentElement?.classList?.add('pr-navbar__box-menu__item--active');
+    const shadowDoms = document.querySelectorAll('pr-horizontal-menu, pr-vertical-menu');
+    shadowDoms?.forEach((dom) => {
+        const shadowDomNav = dom.shadowRoot
+        // Changing only visible menu
+        if (!dom.classList.contains('d-none')) {
+            // Getting all list items
+            const elementsList = shadowDomNav?.querySelectorAll('li');
+            elementsList?.forEach((element) => {
+                // Remove all active items
+                element.classList.remove('pr-navbar__box-menu__item--active');
+            });
+            // Find items by href
+            const elementBySection = shadowDomNav.querySelector(`[href="${section}"]`);
+            // Adding the class active
+            elementBySection?.parentElement?.classList?.add('pr-navbar__box-menu__item--active');
+        }
+    })
 }
 

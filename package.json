@@ -23,7 +23,8 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.18.10",
     "babel-loader": "^8.2.5",
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "isomorphic-dompurify": "^0.22.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",

@@ -1,5 +1,6 @@
 import BaseComponent from "../../../core/base-component";
 import {handleErrors} from "../../../core/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 class HorizontalMenuComponent extends BaseComponent {
     menuItems = [];
@@ -30,7 +31,7 @@ class HorizontalMenuComponent extends BaseComponent {
                     </li>`;
             }
             return `<ul class="pr-navbar__box-menu">
-                ${liElements}
+                ${DOMPurify.sanitize(liElements)}
             </ul>`;
         } catch(e) {
             handleErrors(e);

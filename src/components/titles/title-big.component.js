@@ -1,5 +1,6 @@
 import BaseComponent from "../../core/base-component";
 import {handleErrors} from "../../core/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 class TitleBigComponent extends BaseComponent {
     content = [];
@@ -25,7 +26,7 @@ class TitleBigComponent extends BaseComponent {
             this.content = this.attributes[this.attrs.content].value;
 
             return `<h1 class="pr-title--big pr-strong--block">
-                ${this.content}
+                ${DOMPurify.sanitize(this.content)}
             </h1>`;
         } catch(e) {
             handleErrors(e);

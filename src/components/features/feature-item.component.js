@@ -1,5 +1,6 @@
 import {handleErrors} from "../../core/utils";
 import BaseComponent from "../../core/base-component";
+import DOMPurify from "isomorphic-dompurify";
 
 class FeatureItemComponent extends BaseComponent {
     content = {
@@ -36,8 +37,8 @@ class FeatureItemComponent extends BaseComponent {
             }
 
             return `<div class="pr-feature">
-                        <span class="pr-feature__subtitle">${this.content.subtitle}</span>
-                        <p class="pr-feature__title">${this.content.title}</p>
+                        <span class="pr-feature__subtitle">${DOMPurify.sanitize(this.content.subtitle)}</span>
+                        <p class="pr-feature__title">${DOMPurify.sanitize(this.content.title)}</p>
                     </div>`;
         } catch(e) {
             handleErrors(e);

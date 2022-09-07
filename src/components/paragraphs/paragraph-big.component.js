@@ -1,5 +1,6 @@
 import BaseComponent from "../../core/base-component";
 import {handleErrors} from "../../core/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 class ParagraphBigComponent extends BaseComponent {
   content = '';
@@ -25,7 +26,7 @@ class ParagraphBigComponent extends BaseComponent {
       this.content = this.attributes[this.attrs.content]?.value;
       return `
         <p class="pr-paragraph--big">
-            ${this.content}
+            ${DOMPurify.sanitize(this.content)}
         </p>
       `;
     } catch(e) {

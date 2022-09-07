@@ -1,5 +1,6 @@
 import {handleErrors} from "../../core/utils";
 import BaseComponent from "../../core/base-component";
+import DOMPurify from "isomorphic-dompurify";
 
 class FeatureListComponent extends BaseComponent {
     content = {
@@ -42,9 +43,9 @@ class FeatureListComponent extends BaseComponent {
             });
             tplItems += `</ul>`;
             return `<div class="pr-feature">
-                        <h2 class="pr-feature__title">${this.content.title}</h2>
+                        <h2 class="pr-feature__title">${DOMPurify.sanitize(this.content.title)}</h2>
                         <div class="pr-feature__list_items">
-                            ${tplItems}
+                            ${DOMPurify.sanitize(tplItems)}
                         </div>
                     </div>`;
         } catch(e) {

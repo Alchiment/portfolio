@@ -1,5 +1,6 @@
 import {handleErrors} from "../../core/utils";
 import BaseComponent from "../../core/base-component";
+import DOMPurify from "isomorphic-dompurify";
 
 class BoxPictureInfoComponent extends BaseComponent {
     content = {
@@ -50,15 +51,15 @@ class BoxPictureInfoComponent extends BaseComponent {
                 return;
             }
             
-            return `<div class="pr-box-pic-info ${(this.image.dir)}">
+            return `<div class="pr-box-pic-info ${DOMPurify.sanitize(this.image.dir)}">
                         <div class="pr-box-pic-info__image" 
                              style="background-image: url(${this.image.src})"></div>
                         <div class="pr-box-pic-info__content">
                             <div class="pr-box-pic-info__content--wrapper">
-                                <h3 class="pr-box-pic-info__content--subtitle">${(this.content.subtitle) ? this.content.subtitle : ''}</h3>
-                                <h1 class="pr-box-pic-info__content--title">${this.content.title}</h1>
+                                <h3 class="pr-box-pic-info__content--subtitle">${(this.content.subtitle) ? DOMPurify.sanitize(this.content.subtitle) : ''}</h3>
+                                <h1 class="pr-box-pic-info__content--title">${DOMPurify.sanitize(this.content.title)}</h1>
                                 <p class="pr-box-pic-info__content--text">
-                                    ${this.content.text}
+                                    ${DOMPurify.sanitize(this.content.text)}
                                 </p>
                             </div>
                         </div>

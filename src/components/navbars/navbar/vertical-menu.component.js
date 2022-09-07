@@ -1,5 +1,6 @@
 import BaseComponent from "../../../core/base-component";
 import {handleErrors} from "../../../core/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 class VerticalMenuComponent extends BaseComponent {
     menuItems = [];
@@ -31,7 +32,7 @@ class VerticalMenuComponent extends BaseComponent {
             }
             console.log('tiems', this.menuItems);
             return `<ul class="pr-navbar__box-menu">
-                ${liElements}
+                ${DOMPurify.sanitize(liElements)}
             </ul>`;
         } catch(e) {
             handleErrors(e);

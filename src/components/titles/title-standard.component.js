@@ -1,5 +1,6 @@
 import BaseComponent from "../../core/base-component";
 import {handleErrors} from "../../core/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 class TitleStandardComponent extends BaseComponent {
     content = [];
@@ -27,7 +28,7 @@ class TitleStandardComponent extends BaseComponent {
             const color = this.attributes[this.attrs.color]?.value || 'white';
 
             return `<h1 class="pr-title-standard standard--${color}">
-                ${this.content}
+                ${DOMPurify.sanitize(this.content)}
             </h1>`;
         } catch(e) {
             handleErrors(e);

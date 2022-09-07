@@ -1,4 +1,5 @@
 import BaseComponent from "../../core/base-component";
+import DOMPurify from "isomorphic-dompurify";
 
 class ButtonStandardComponent extends BaseComponent {
     constructor() {
@@ -16,7 +17,7 @@ class ButtonStandardComponent extends BaseComponent {
     templateHTML() {
         return `
             <button class="pr-button pr-button--standard">
-                ${this.attributes?.content.value}
+                ${DOMPurify.sanitize(this.attributes?.content.value)}
             </button>
         `;
     }

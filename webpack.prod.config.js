@@ -1,6 +1,7 @@
-const path = require('path');
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path'); // import module from commonjs
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -8,44 +9,41 @@ module.exports = {
         'home': './src/pages/home/home.page.js',
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name][contenthash].js', // replace name from entry object above
         path: path.resolve(__dirname, './dist'),
-        publicPath: ''
+        publicPath: '',
     },
-    mode: 'development',
-    devServer: {
-        port: 9000,
-        static: {
-            directory: path.resolve(__dirname, './dist')
-        },
-        devMiddleware: {
-            index: 'index.html',
-            writeToDisk: true,
+    mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 3000, // around 3kb
         }
     },
     module: {
         rules: [
             {
                 test: /\.(ttf)$/,
-                type: 'asset/resource',
+                type: 'asset/resource'
             },
             {
-                test: /\.(png|jpeg|jpg)$/,
+                test: /\.(png|jpeg|jpg)$/, // Detecta los archivos tipo imagen para procesarlos con el asset
                 type: 'asset/resource',
+                // type: 'asset/resource' // Genera el archivo en base64 en el mismo bundle
             },
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader',
+                    'sass-loader'
                 ]
             },
             {
@@ -64,8 +62,8 @@ module.exports = {
                 use: [
                     'handlebars-loader'
                 ]
-            },
-        ],
+            }
+        ]
     },
     plugins: [
         new CopyWebpackPlugin({
@@ -73,10 +71,13 @@ module.exports = {
                 { from: path.resolve(__dirname, './static'), to: path.resolve(__dirname, './dist/static') },
             ],
         }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
-                '**/*',
-                path.join(process.cwd(), 'build/**/*')
+                '**/*', // elimina todos los archivos y subcarpetas
+                path.join(process.cwd(), 'build/**/*'),
             ]
         }),
         new HtmlWebpackPlugin({
@@ -86,5 +87,13 @@ module.exports = {
             description: 'Home page',
             chunks: ['home'],
         })
+        // new HtmlWebpackPlugin({
+        //     filename: 'kiwi.html',
+        //     title: 'Kiwi',
+        //     template: 'src/page-template.hbs',
+        //     description: 'Kiwi',
+        //     chunks: ['kiwi'], // This refers to name assigned in entry object
+        //     // minify: false
+        // }),
     ]
 }

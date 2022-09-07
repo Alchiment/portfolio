@@ -39,6 +39,10 @@ class BaseComponent extends HTMLElement {
     templateStyle() {
         return `<style></style>`
     }
+
+    getDOM() {
+        return this.shadowDOM;
+    }
 }
 
 export default BaseComponent;

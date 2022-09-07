@@ -35,14 +35,14 @@ class TitleBigComponent extends BaseComponent {
     templateStyle() {
         return `
           <style>
-            h1.pr-title--big {
+            .pr-title--big {
                 font-size: 40px;
                 font-weight: 500;
                 margin-top: 15px;
                 margin-bottom: 15px;
             }
             
-            h1.pr-title--big strong {
+            .pr-title--big strong {
                 color: var(--cian);
                 font-family: 'Montserrat-Bold', serif;
                 font-size: 64px;
@@ -51,6 +51,15 @@ class TitleBigComponent extends BaseComponent {
             
             .pr-strong--block strong {
                 display: block;
+            }
+            
+            @media (max-width: 768px) {
+                .pr-title--big {
+                    font-size: 25px;
+                }
+                .pr-title--big strong {
+                    font-size: 49px;
+                }
             }
           </style>
         `;

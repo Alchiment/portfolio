@@ -19,6 +19,7 @@
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/utilities/api";
 
+@import "components/sidebarmenu";
 @import "components/navbars.component";
 @import "components/sections.component";
 @import "icons.css";
@@ -76,25 +77,20 @@ body {
   width: 100%;
 }
 
-.pr-d-flex {
-  display: flex;
-}
-
-.pr-justify-content-center {
-  justify-content: center;
-}
-
-.pr-justify-content-between {
-  justify-content: space-between;
+.pr-max {
+  &w-300 {
+    max-width: 300px;
+  }
+  &w-450 {
+    max-width: 450px;
+  }
+  &w-500 {
+    max-width: 500px;
+  }
 }
 
 .pr-pt-top-100px {
   padding-top: 100px;
-}
-
-.pr-px-3 {
-  padding-left: 3em;
-  padding-right: 3em;
 }
 
 .row {

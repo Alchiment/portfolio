@@ -1,7 +1,7 @@
 import BaseComponent from "../../../core/base-component";
 import {handleErrors} from "../../../core/utils";
 
-class HorizontalMenuComponent extends BaseComponent {
+class VerticalMenuComponent extends BaseComponent {
     menuItems = [];
     attrs = {
         menuItems: 'menuitems'
@@ -25,10 +25,11 @@ class HorizontalMenuComponent extends BaseComponent {
             this.menuItems = JSON.parse(this.attributes[this.attrs.menuItems].value) || [];
             let liElements = '';
             for (let item of this.menuItems) {
-                liElements += `<li class="pr-navbar__box-menu__item ${(item.active) ? 'pr-navbar__box-menu__item--active': ''}">
+                liElements += `<li class="pr-navbar__box-menu__item ${(item.active) ?'pr-navbar__box-menu__item--active': ''}">
                         <a href="${item.path || '#'}">${item.content}</a>
                     </li>`;
             }
+            console.log('tiems', this.menuItems);
             return `<ul class="pr-navbar__box-menu">
                 ${liElements}
             </ul>`;
@@ -42,7 +43,10 @@ class HorizontalMenuComponent extends BaseComponent {
           <style>
             .pr-navbar__box-menu {
                 display: flex;
+                flex-direction: column;
                 align-content: center;
+                padding: 0;
+                margin: 0;
             }
             .pr-navbar__box-menu li {
                 text-decoration: none;
@@ -53,6 +57,8 @@ class HorizontalMenuComponent extends BaseComponent {
                 text-decoration: none;
                 display: block;
                 padding: 10px 20px;
+                margin-top: 5px;
+                margin-bottom: 5px;
             }
             .pr-navbar__box-menu--horizontal {
                 display: flex;
@@ -80,4 +86,4 @@ class HorizontalMenuComponent extends BaseComponent {
     }
 }
 
-export default HorizontalMenuComponent;
+export default VerticalMenuComponent;

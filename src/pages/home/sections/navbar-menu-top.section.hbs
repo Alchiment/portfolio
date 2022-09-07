@@ -1,8 +1,23 @@
 <div class="pr-navbar--fixed">
     <div class="pr-container">
-        <div class="pr-navbar__box-logo">
+        <div class="pr-navbar__box-logo p-2">
             <pr-image src="/static/assets/images/logo_mini.png"></pr-image>
         </div>
         <pr-horizontal-menu menuitems="{{menuItems}}"></pr-horizontal-menu>
+        <pr-button-link class="menu--open fs-1 p-3" path="javascript:;">
+            <span slot="link-icon"><i class="icon-menu"></i></span>
+        </pr-button-link>
+    </div>
+</div>
+<div class="pr-sidebar_menu">
+    <div class="pr-sidebar--header">
+        <pr-button-link class="menu--close fs-1" path="javascript:;">
+            <span slot="link-icon"><i class="icon-cancel-circle"></i></span>
+        </pr-button-link>
+    </div>
+    <div class="pr-sidebar--content">
+        <pr-vertical-menu menuitems="{{menuItems}}"></pr-vertical-menu>
+    </div>
+    <div class="pr-sidebar--footer">
     </div>
 </div>

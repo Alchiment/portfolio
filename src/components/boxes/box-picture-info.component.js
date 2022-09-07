@@ -122,6 +122,21 @@ class BoxPictureInfoComponent extends BaseComponent {
               .pr-box-pic-info__content--text {
                 display: block;
               }
+              @media (max-width: 768px) {
+                .pr-box-pic-info {
+                    flex-direction: column;
+                    height: 600px;
+                }
+                .pr-box-pic-info__content, .pr-box-pic-info__image {
+                    width: 100%;
+                }
+                .pr-box-pic-info.img-txt {
+                    flex-direction: column;              
+                }
+                  .pr-box-pic-info.txt-img {
+                    flex-direction: column-reverse;              
+                  }
+              }
           </style>
         `;
     }

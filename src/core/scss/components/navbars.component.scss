@@ -7,5 +7,10 @@
     left: 0;
     width: 100%;
     z-index: 101;
+    transition: 0.2s;
+    &.navbar--sticky {
+      background: var(--black);
+    }
   }
+
 }

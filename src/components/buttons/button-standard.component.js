@@ -15,8 +15,9 @@ class ButtonStandardComponent extends BaseComponent {
     }
 
     templateHTML() {
+        const style = this.attributes?.stl.value || '';
         return `
-            <button class="pr-button pr-button--standard">
+            <button class="pr-button pr-button--standard ${style}">
                 ${DOMPurify.sanitize(this.attributes?.content.value)}
             </button>
         `;
@@ -30,7 +31,7 @@ class ButtonStandardComponent extends BaseComponent {
                   color: #1D1C24;
                   background-color: #fff;
                   border: 1px solid #fff;
-                  padding: 10px 50px;
+                  padding: 10px 14px;
                   margin: 5px;
                   cursor: pointer;
                 }

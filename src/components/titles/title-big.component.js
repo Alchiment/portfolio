@@ -62,6 +62,15 @@ class TitleBigComponent extends BaseComponent {
                     font-size: 49px;
                 }
             }
+            
+            @media (max-width: 576px) {
+                .pr-title--big {
+                    font-size: 20px;
+                }
+                .pr-title--big strong {
+                    font-size: 39px;
+                }
+            }
           </style>
         `;
     }

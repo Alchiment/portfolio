@@ -80,9 +80,14 @@ function actionsMobileMenu() {
     const shadowDom = document.querySelector('pr-vertical-menu').shadowRoot;
     setTimeout(() => {
         console.log('click', shadowDom.querySelector('.pr-navbar__box-menu__item'));
-        shadowDom.querySelector('.pr-navbar__box-menu__item').addEventListener('click', () => {
-            console.log('click');
-        });
+        const items = shadowDom.querySelectorAll('.pr-navbar__box-menu__item')
+
+        items.forEach((item) => {
+            item.addEventListener('click', () => {
+                document.querySelector('.menu--close').click();
+                console.log('click');
+            });
+        })
     }, 2000)
 }
 

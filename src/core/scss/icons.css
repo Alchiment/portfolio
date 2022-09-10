@@ -43,3 +43,9 @@
 .icon-menu:before {
   content: "\e9bd";
 }
+.icon-sphere:before {
+  content: "\e9c9";
+}
+.icon-link:before {
+  content: "\e9cb";
+}

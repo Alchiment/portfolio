@@ -72,6 +72,9 @@ class BoxPictureInfoComponent extends BaseComponent {
     templateStyle() {
         return `
           <style>
+              a.pr-link {
+                color: var(--cian) !important;
+              }
               .pr-box-pic-info {
                 position: relative;
                 display: flex;

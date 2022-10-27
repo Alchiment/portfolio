@@ -30,7 +30,6 @@ class VerticalMenuComponent extends BaseComponent {
                         <a href="${item.path || '#'}">${item.content}</a>
                     </li>`;
             }
-            console.log('tiems', this.menuItems);
             return `<ul class="pr-navbar__box-menu">
                 ${DOMPurify.sanitize(liElements)}
             </ul>`;

@@ -2,6 +2,7 @@ import template from './home.page.hbs';
 import '../../core/scss/root.scss';
 // Custom components
 import ButtonStandardComponent from "../../components/buttons/button-standard.component";
+import ButtonStandardLinkComponent from "../../components/buttons/button-standard-link.component";
 import HorizontalMenuComponent from "../../components/navbars/navbar/horizontal-menu.component";
 import ImageComponent from "../../components/logos/image.component";
 import TitleBigComponent from "../../components/titles/title-big.component";
@@ -38,6 +39,7 @@ const menu = [
     },
 ];
 window.customElements.define('pr-button-standard', ButtonStandardComponent);
+window.customElements.define('pr-button-standard-link', ButtonStandardLinkComponent);
 window.customElements.define('pr-button-link', ButtonLinkComponent);
 window.customElements.define('pr-horizontal-menu', HorizontalMenuComponent);
 window.customElements.define('pr-vertical-menu', VerticalMenuComponent);
@@ -79,13 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function actionsMobileMenu() {
     const shadowDom = document.querySelector('pr-vertical-menu').shadowRoot;
     setTimeout(() => {
-        console.log('click', shadowDom.querySelector('.pr-navbar__box-menu__item'));
         const items = shadowDom.querySelectorAll('.pr-navbar__box-menu__item')
 
         items.forEach((item) => {
             item.addEventListener('click', () => {
                 document.querySelector('.menu--close').click();
-                console.log('click');
             });
         })
     }, 2000)

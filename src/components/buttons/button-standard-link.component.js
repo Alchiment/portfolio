@@ -1,18 +1,21 @@
 import BaseComponent from "../../core/base-component";
 import DOMPurify from "isomorphic-dompurify";
 
-class ButtonStandardComponent extends BaseComponent {
+class ButtonStandardLinkComponent extends BaseComponent {
     constructor() {
         super();
     }
 
     templateHTML() {
+        const target = this.attributes?.target?.value;
         const style = this.attributes?.stl?.value || '';
         const id = this.attributes?.id?.value || new Date().getTime();
         return `
-            <button class="pr-button pr-button--standard ${style}" id="${id}">
-                ${DOMPurify.sanitize(this.attributes?.content.value)}
-            </button>
+            <a href="${this.attributes?.path?.value}"
+               target="${target ? target : '_self'}"
+               class="pr-button pr-button--standard ${style}" id="${id}">
+               <slot name="link-icon"></slot>
+           </a>
         `;
     }
 
@@ -25,9 +28,12 @@ class ButtonStandardComponent extends BaseComponent {
                   background-color: #fff;
                   border: 1px solid #fff;
                   padding: 10px 14px;
-                  margin: 5px;
+                  margin: 4px;
                   cursor: pointer;
+                  text-decoration: none;
                   font-family: 'Montserrat-Regular', serif;
+                  font-size: 12px;
+                  display: block;
                 }
                 .pr-button--block {
                   width: 100%;
@@ -54,4 +60,4 @@ class ButtonStandardComponent extends BaseComponent {
     }
 }
 
-export default ButtonStandardComponent;
+export default ButtonStandardLinkComponent;

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: portfolio
+spec:
+  hostname: usaly-co
+  subdomain: rrivas
+  containers:
+    - name: portfolio
+      image: usalyrrivas/portfolio:0.0.1
+      ports:
+      - containerPort: 4100
